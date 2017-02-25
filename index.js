@@ -5,6 +5,7 @@
     const textarea = form[0];
     const output = document.getElementById('results');
 
+    // event-listening
     form.addEventListener('submit', function(event){
         event.preventDefault();
         collection = [];
@@ -12,23 +13,10 @@
     });
 
     preloaded.addEventListener('change', function(event){
-        let text;
-        switch (event.target.value){
-            case 'swann':
-                text = document.getElementById('swann').innerHTML;
-                break;
-            case 'inferno':
-                text = document.getElementById('inferno').innerHTML;
-                break;
-            case 'genesis':
-                text = document.getElementById('genesis').innerHTML;
-                break;
-            default: 
-                text = '';
-        }
-        textarea.value = text;
+        textarea.value = event.target.value === 'none' ? '' : document.getElementById(event.target.value).innerHTML;
     });
 
+    // event handlers
     function scramble(input){
         
         let collection = [];
@@ -62,20 +50,22 @@
                             + ' ...';
     }    
 
+    // graph-making helper functions
     function makeGraph(tokens) {
+        let vtxA, vtxB;
 
         for (let i = 0; i < tokens.length - 1; i++) {
-            let vertexA = getVertex(tokens[i]);
-            let vertexB = getVertex(tokens[i + 1]);
-            if (!vertexA){
-                vertexA = new Vertex(tokens[i]);
-                collection.push(vertexA);
+            vtxA = getVertex(tokens[i]);
+            vtxB = getVertex(tokens[i + 1]);
+            if (!vtxA){
+                vtxA = new Vertex(tokens[i]);
+                collection.push(vtxA);
             }
-            if (!vertexB){
-                vertexB = new Vertex(tokens[i + 1]);
-                collection.push(vertexB);
+            if (!vtxB){
+                vtxB = new Vertex(tokens[i + 1]);
+                collection.push(vtxB);
             }
-            vertexA.addAdjacent(vertexB);
+            vtxA.addAdjacent(vtxB);
         }
 
         return collection;
@@ -93,11 +83,9 @@
             this.value = value;
             this.adjacencies = [];
         }
-
         addAdjacent(vertex){
             this.adjacencies.push(vertex);
         }
-
         randomWalk(){
             return this.adjacencies[Math.floor(Math.random() * this.adjacencies.length)] || getVertex('.');
         }
