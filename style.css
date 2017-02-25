@@ -1,0 +1,46 @@
+* {
+    font-family: monospace;
+    color: black;
+}
+
+body {
+    margin: 70px;
+}
+
+.hidden {
+    display: none;
+}
+
+.row {
+    padding-bottom: 20px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+}
+
+.fixed {
+    width: 480px;
+}
+
+.flex {
+    width: 40vw;
+}
+
+textarea {
+    border: 1px solid black;
+}
+
+button, select {
+    background-color: antiquewhite;
+    border: 1px solid black;
+}
+
+#footer {
+    position: absolute;
+}
