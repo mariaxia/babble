@@ -4,4 +4,4 @@ A page that produces somewhat coherent babble from your writing. It generates a 
 
 Recommended use: to cure writer's block.
 
-See it at [mariaxia.github.io/babble](mariaxia.github.io/babble).
+See it at [mariaxia.github.io/babble](http://mariaxia.github.io/babble).
