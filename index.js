@@ -5,6 +5,13 @@
     const textarea = form[0];
     const output = document.getElementById('results');
 
+    // set up canvas
+    const canvas = document.createElement('canvas');
+    canvas.id = 'graph';
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const context = canvas.getContext('2d');
+
     // event-listening
     form.addEventListener('submit', function(event){
         event.preventDefault();
