@@ -3,31 +3,43 @@
   <head>
     <title>Babble</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="index.js" defer></script>
+    <script src="graph.js" defer></script>
   </head>
   <body>
-    <div id="root">
-
+    <div id="header">
+        <h2>Babble</h2>
+        <br><br>
+    </div>
+    <div id="container">
         <div class="row">
-            <p>Enter your own, or select a sample text:</p>
-            <select id="preloaded">
-                <option value="none">(None)</option>
-                <option value="moby">Moby Dick (Herman Melville)</option>
-                <option value="swann">Swann's Way (Marcel Proust, tr. Lydia Davis)</option>
-                <option value="inferno">Inferno (Dante Alighieri, tr. Mary Jo Bang)</option>
-                <option value="genesis">Genesis I (King James Version)</option>
-            </select>
-        </div>
-        <div class="row">
-            <div class="column fixed" id="user-input">
-                <form id="user">
-                    <textarea autofocus rows="30" cols="50" form="user" placeholder="Enter text..."></textarea>
-                    <br><br>
-                    <button type="submit" value="Submit">Submit</button>
-                </form>
+            <div class="column">
+                <div class="row">
+                    <p>Enter your own, or select a sample text:</p>
+                    <select id="preloaded">
+                        <option value="none">(None)</option>
+                        <option value="moby">Moby Dick (Herman Melville)</option>
+                        <option value="swann">Swann's Way (Marcel Proust, tr. Lydia Davis)</option>
+                        <option value="inferno">Inferno (Dante Alighieri, tr. Mary Jo Bang)</option>
+                        <option value="genesis">Genesis I (King James Version)</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div id="user-input">
+                        <form id="user">
+                            <textarea autofocus rows="30" cols="50" form="user" placeholder="Enter text..."></textarea>
+                            <br><br>
+                            <button type="submit" value="Submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="column flex" id="results"></div>
+            <div class="column">
+                <svg width="900" height="600"></svg>
+            </div>
         </div>
+        <div class="row" id="results"></div>
 
         <div class="hidden" id="moby">
 Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people's hats off—then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. With a philosophical flourish Cato throws himself upon his sword; I quietly take to the ship. There is nothing surprising in this. If they but knew it, almost all men in their degree, some time or other, cherish very nearly the same feelings towards the ocean with me.
@@ -312,6 +324,9 @@ And to every beast of the earth, and to every fowl of the air, and to every thin
 
 And God saw every thing that he had made, and, behold, it was very good. And the evening and the morning were the sixth day.
         </div>
+    </div>
+    <div id="footer">
+        <a href="www.github.com/mariaxia/babble">Github</a>
     </div>
   </body>
 </html>
